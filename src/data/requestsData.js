@@ -1,3 +1,4 @@
+// src/data/requestsData.js
 export const requestsData = [
   {
     id: '1',
@@ -32,9 +33,11 @@ export const requestsData = [
 ];
 
 export const updateRequestStatus = (requests, id, newStatus) => {
-  return requests.map(req => 
-    req.id === id 
+  return requests.map((req) =>
+    req.id === id
       ? { ...req, status: newStatus, updatedAt: new Date().toISOString() }
       : req
   );
 };
+
+export const generateId = () => Date.now().toString();

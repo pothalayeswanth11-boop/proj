@@ -1,3 +1,4 @@
+// src/components/StatusIndicator.jsx
 const statusConfig = {
   pending: { label: 'Pending', color: 'orange' },
   'in-progress': { label: 'In Progress', color: 'blue' },
@@ -6,9 +7,9 @@ const statusConfig = {
 
 function StatusIndicator({ status }) {
   const config = statusConfig[status] || statusConfig.pending;
-  
+
   return (
-    <span 
+    <span
       className={`status-indicator status-${config.color}`}
       role="status"
       aria-label={`Status: ${config.label}`}

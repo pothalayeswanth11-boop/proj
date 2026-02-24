@@ -1,3 +1,4 @@
+// src/components/RequestForm.jsx
 import { useState } from 'react';
 
 function RequestForm({ onSubmit, isEditing = false, initialData = {} }) {
@@ -14,10 +15,10 @@ function RequestForm({ onSubmit, isEditing = false, initialData = {} }) {
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value
-    });
+    }));
   };
 
   return (
@@ -35,7 +36,7 @@ function RequestForm({ onSubmit, isEditing = false, initialData = {} }) {
           maxLength={100}
         />
       </div>
-      
+
       <div className="form-group">
         <label htmlFor="description">Description</label>
         <textarea
@@ -52,16 +53,28 @@ function RequestForm({ onSubmit, isEditing = false, initialData = {} }) {
       <div className="form-row">
         <div className="form-group">
           <label htmlFor="category">Category</label>
-          <select id="category" name="category" value={formData.category} onChange={handleChange}>
+          <select
+            id="category"
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            aria-label="Request category"
+          >
             <option value="it-support">IT Support</option>
             <option value="facility">Facility</option>
             <option value="maintenance">Maintenance</option>
           </select>
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="priority">Priority</label>
-          <select id="priority" name="priority" value={formData.priority} onChange={handleChange}>
+          <select
+            id="priority"
+            name="priority"
+            value={formData.priority}
+            onChange={handleChange}
+            aria-label="Request priority"
+          >
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>

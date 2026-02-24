@@ -1,3 +1,4 @@
+// src/components/Layout.jsx
 import { Link } from 'react-router-dom';
 
 function Layout({ children }) {
@@ -6,12 +7,12 @@ function Layout({ children }) {
       <header className="app-header" role="banner">
         <h1>Service Request Management</h1>
         <nav aria-label="Main navigation">
-          <Link to="/" className="nav-link">Overview</Link>
+          <Link to="/" className="nav-link">
+            Overview
+          </Link>
         </nav>
       </header>
-      <main className="app-main">
-        {children}
-      </main>
+      <main className="app-main">{children}</main>
     </div>
   );
 }
